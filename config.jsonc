@@ -6,7 +6,7 @@
     "layer": "top",
     "position": "top",
     "mod": "dock",
-    "height": 34,
+    "height": 36,
     "exclusive": true,
     "passthrough": false,
     "gtk-layer-shell": true,
@@ -15,108 +15,54 @@
 
 // positions generated based on config.ctl //
 
-	"modules-left": ["custom/padd","custom/l_end","hyprland/workspaces","hyprland/window","custom/r_end","custom/padd"],
+	"modules-left": ["custom/padd","custom/l_end","hyprland/workspaces","custom/r_end","custom/l_end","cpu","memory","custom/cpuinfo","custom/gpuinfo","custom/r_end","custom/padd"],
 	"modules-center": ["custom/padd","custom/l_end","wlr/taskbar","clock","custom/r_end","custom/padd"],
-	"modules-right": ["custom/padd","custom/l_end","network","memory","cpu","custom/cpuinfo","custom/gpuinfo","custom/r_end","custom/l_end","tray","bluetooth","pulseaudio","pulseaudio#microphone","backlight","battery","custom/power","custom/updates","custom/r_end","custom/padd"],
+	"modules-right": ["custom/padd","custom/l_end","network","custom/r_endcustom/l_end","tray","bluetooth","pulseaudio","pulseaudio#microphone","backlight","battery","custom/power","custom/updates","custom/r_end","custom/padd"],
 
 
 // sourced from modules based on config.ctl //
 
-    "hyprland/workspaces": {
-        "disable-scroll": true,
-        "rotate": 0,
-        "all-outputs": true,
-        "active-only": false,
-        "on-click": "activate",
-        "disable-scroll": false,
-        "on-scroll-up": "hyprctl dispatch workspace -1",
-        "on-scroll-down": "hyprctl dispatch workspace +1",
-        "persistent-workspaces": {
-                "1": [],
-                "2": [],
-                "3": [],
-                "4": [],
-                "5": [],
-                "6": [],
-                "7": [],
-                "8": [],
-                "9": []
-        }
+"hyprland/workspaces": {
+    "rotate": 0,
+    "disable-scroll": true,
+    "all-outputs": true,
+    "active-only": false,
+    "on-click": "activate",
+    "disable-scroll": false,
+    "on-scroll-down": "hyprctl dispatch workspace -1",
+    "on-scroll-up": "hyprctl dispatch workspace +1",
+    "format":"{icon}",
+    "format-icons": {
+            "1": "",
+            "2": "",
+            "3": "",
+            "4": "",
+            "5": "",
+            "6": "",
+            "7": "",
+            "8": "",
+            "9": "",
+            "active": "󰋑"
     },
+    "persistent-workspaces": {
+            "1": [],
+            "2": [],
+            "3": [],
+            "4": [],
+            "5": [],
+            "6": [],
+            "7": [],
+            "8": [],
+            "9": []
+    }
+},
 
-    "hyprland/window": {
-        "format": "  {}",
+    "cpu": {
+        "interval": 10,
+        "format": "󰍛 {usage}%",
         "rotate": 0,
-        "separate-outputs": true,
-        "rewrite": {
-            "q@cyberdeck:(.*)": "$1 ",
-            "(.*) — Mozilla Firefox": "$1 󰈹",
-            "(.*)Mozilla Firefox": "Firefox 󰈹",
-            "(.*) - Visual Studio Code": "$1 󰨞",
-            "(.*)Visual Studio Code": "Code 󰨞",
-            "(.*) — Dolphin": "$1 󰉋",
-            "(.*)Spotify": "Spotify 󰓇",
-            "(.*)Steam": "Steam 󰓓"
-        },
-        "max-length": 1000
-    },
-
-	"wlr/taskbar": {
-		"format": "{icon}",
-		"rotate": 0,
-		"icon-size": 20,
-		"icon-theme": "Tela-circle-green",
-        "spacing": 0,
-		"tooltip-format": "{title}",
-		"on-click": "activate",
-		"on-click-middle": "close",
-		"ignore-list": [
-			"Alacritty",
-			"b",
-      "n",
-      "q@cyberdeck:~"
-		],
-		"app_ids-mapping": {
-			"firefoxdeveloperedition": "firefox-developer-edition"
-		}
-	},
-
-    "clock": {
-        "format": "{:%H:%M   %m·%y 󰃭}",
-        "rotate": 0,
-        "format-alt": "{:%R 󰃭 %d·%m·%y}",
-        "tooltip-format": "<tt>{calendar}</tt>",
-        "calendar": {
-            "mode": "month",
-            "mode-mon-col": 3,
-            "on-scroll": 1,
-            "on-click-right": "mode",
-            "format": {
-                "months": "<span color='#ffead3'><b>{}</b></span>",
-                "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
-                "today": "<span color='#ff6699'><b>{}</b></span>"
-            }
-        },
-        "actions": {
-            "on-click-right": "mode",
-            "on-click-forward": "tz_up",
-            "on-click-backward": "tz_down",
-            "on-scroll-up": "shift_up",
-            "on-scroll-down": "shift_down"
-        }
-    },
-
-    "network": {
-        "tooltip": true,
-        "format-wifi": "<span foreground='#99ffdd'> {bandwidthDownBytes}</span> <span foreground='#ffcc66'> {bandwidthUpBytes}</span>",
-        "rotate": 0,
-        "format-ethernet": "󰈀 ",
-        "tooltip-format": "Network: <big><b>{essid}</b></big>\nSignal strength: <b>{signaldBm}dBm ({signalStrength}%)</b>\nFrequency: <b>{frequency}MHz</b>\nInterface: <b>{ifname}</b>\nIP: <b>{ipaddr}/{cidr}</b>\nGateway: <b>{gwaddr}</b>\nNetmask: <b>{netmask}</b>",
-        "format-linked": "󰈀 {ifname} (No IP)",
-        "format-disconnected": "󰖪 ",
-        "tooltip-format-disconnected": "Disconnected",
-        "format-alt": " ",
-        "interval": 2,
+        "format-alt": "{icon0}{icon1}{icon2}{icon3}",
+        "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"]
     },
 
     "memory": {
@@ -135,14 +81,6 @@
         "max-length": 10,
         "tooltip": true,
         "tooltip-format": "󰾆 {percentage}%\n {used:0.1f}GB/{total:0.1f}GB"
-    },
-
-    "cpu": {
-        "interval": 10,
-        "format": "󰍛 {usage}%",
-        "rotate": 0,
-        "format-alt": "{icon0}{icon1}{icon2}{icon3}",
-        "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"]
     },
 
     "custom/cpuinfo": {
@@ -196,8 +134,65 @@
         "max-length": 1000,
     },
 
+	"wlr/taskbar": {
+		"format": "{icon}",
+		"rotate": 0,
+		"icon-size": 21,
+		"icon-theme": "Tela-circle-green",
+        "spacing": 0,
+		"tooltip-format": "{title}",
+		"on-click": "activate",
+		"on-click-middle": "close",
+		"ignore-list": [
+			"b",
+      "n",
+		],
+		"app_ids-mapping": {
+			"firefoxdeveloperedition": "firefox-developer-edition"
+		}
+	},
+
+    "clock": {
+        "format": "{:%R}",
+        "rotate": 0,
+        "format-alt": "{:%H:%M   %d-%m-%y 󰃭 }",
+        "tooltip-format": "<tt>{calendar}</tt>",
+        "timezone": "Asia/Baku",
+        "calendar": {
+            "mode": "month",
+            "mode-mon-col": 3,
+            "on-scroll": 1,
+            "on-click-right": "mode",
+            "format": {
+                "months": "<span color='#ffead3'><b>{}</b></span>",
+                "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
+                "today": "<span color='#ff6699'><b>{}</b></span>"
+            }
+        },
+        "actions": {
+            "on-click-right": "mode",
+            "on-click-forward": "tz_up",
+            "on-click-backward": "tz_down",
+            "on-scroll-up": "shift_up",
+            "on-scroll-down": "shift_down"
+        }
+    },
+
+    "network": {
+        "tooltip": true,
+        "format-wifi": "<span foreground='#ffcc66'> {bandwidthUpBytes}</span> <span foreground='#99ffdd'> {bandwidthDownBytes}</span>",
+        "rotate": 0,
+        "format-ethernet": "󰈀 ",
+        "tooltip-format": "Network: <big><b>{essid}</b></big>\nSignal strength: <b>{signaldBm}dBm ({signalStrength}%)</b>\nFrequency: <b>{frequency}MHz</b>\nInterface: <b>{ifname}</b>\nIP: <b>{ipaddr}/{cidr}</b>\nGateway: <b>{gwaddr}</b>\nNetmask: <b>{netmask}</b>",
+        "format-linked": "󰈀 {ifname} (No IP)",
+        "format-disconnected": "󰖪 ",
+        "tooltip-format-disconnected": "Disconnected",
+        "format-alt": " ",
+        "interval": 2,
+    },
+
     "tray": {
-        "icon-size": 20,
+        "icon-size": 21,
         "rotate": 0,
         "spacing": 5
     },
@@ -205,10 +200,9 @@
     "bluetooth": {
         "format": "",
         "rotate": 0,
-        "format-disabled": "",
+        "format-disabled": "",
         "format-connected": " {num_connections}",
-        "format-connected-battery": "{icon} {num_connections}",
-        "format-connected-battery": "{icon} {device_alias}-{device_battery_percentage}%",
+        "format-connected-battery": "{icon} {device_battery_percentage}%",
         "format-icons": ["󰥇", "󰤾", "󰤿", "󰥀", "󰥁", "󰥂", "󰥃", "󰥄", "󰥅", "󰥆", "󰥈"],
         // "format-device-preference": [ "device1", "device2" ], // preference list deciding the displayed device If this config option is not defined or none of the devices in the list are connected, it will fall back to showing the last connected device.
         "tooltip-format": "{controller_alias}\n{num_connections} connected",
@@ -288,10 +282,10 @@
     "custom/updates": {
         "exec": "systemupdate.sh",
         "return-type": "json",
-        "format": "󱦺{}",
+        "format": "{}",
         "rotate": 0,
         "on-click": "systemupdate.sh up",
-        "interval": 43200, // once every day
+        "interval": 3600, // once every day
         "tooltip": true,
         "signal": 20,
     },
