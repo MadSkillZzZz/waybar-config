@@ -1,8 +1,9 @@
     "clock": {
-        "format": "{:%H:%M   %m·%y 󰃭}",
+        "format": "{:%R}",
         "rotate": ${r_deg},
-        "format-alt": "{:%R 󰃭 %d·%m·%y}",
+        "format-alt": "{:%H:%M   %d-%m-%y 󰃭 }",
         "tooltip-format": "<tt>{calendar}</tt>",
+        "timezone": "Asia/Baku",
         "calendar": {
             "mode": "month",
             "mode-mon-col": 3,
