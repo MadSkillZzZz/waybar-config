@@ -1,14 +1,18 @@
     "battery": {
         "states": {
-            "good": 95,
-            "warning": 30,
-            "critical": 20
+            "critical":    30,
+            "warning":     80,
+            "good":        100,
         },
-        "format": "{icon} {capacity}%",
-        "rotate": ${r_deg},
-        "format-charging": " {capacity}%",
-        "format-plugged": " {capacity}%",
-        "format-alt": "{time} {icon}",
-        "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
+        "interval":        1,
+        "format":          "{icon} {capacity}%",
+        "rotate":          ${r_deg},
+        "format-good":     "<span foreground='#99ffdd'>{icon} {capacity}%</span>",
+        "format-warning":  "<span foreground='#ffcc66'>{icon} {capacity}%</span>",
+        "format-critical": "<span foreground='#f7768e'>{icon} {capacity}%</span>",
+        "format-charging": "<span foreground='#99ffdd'> {capacity}%</span>",
+        "format-plugged":  "<span foreground='#99ffdd'> {capacity}%</span>",
+        "format-alt":      "{time} {icon}",
+        "format-icons":    ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
     },
 
